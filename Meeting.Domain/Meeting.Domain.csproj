@@ -41,13 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arguments\Room\AddRoomRequest.cs" />
+    <Compile Include="Arguments\Room\AddRoomResponse.cs" />
     <Compile Include="Arguments\User\AddUserRequest.cs" />
+    <Compile Include="Arguments\User\AddUserResponse.cs" />
+    <Compile Include="Arguments\User\AuthenticateUserRequest.cs" />
+    <Compile Include="Arguments\User\AuthenticateUserResponse.cs" />
     <Compile Include="Entities\Room.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Meeting.cs" />
     <Compile Include="Enum\EnumRoomStatus.cs" />
     <Compile Include="Interfaces\Arguments\IRequest.cs" />
     <Compile Include="Interfaces\Arguments\IResponse.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryUser.cs" />
     <Compile Include="Interfaces\Services\IServiceRoom.cs" />
     <Compile Include="Interfaces\Services\IServiceUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,7 +62,7 @@
     <Compile Include="ValueObjects\Name.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\Repositories\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,8 +5,8 @@ namespace Meeting.Domain.Interfaces.Services
 {
     public interface IServiceUser
     {
-        string AuthenticateUser(string email, string senha);
+        AuthenticateUserResponse AuthenticateUser(AuthenticateUserRequest request);
 
-        Guid AddUser(AddUserRequest);
+        AddUserResponse AddUser(AddUserRequest request);
     }
 }

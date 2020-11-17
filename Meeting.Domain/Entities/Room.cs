@@ -7,8 +7,6 @@ namespace Meeting.Domain.Entities
     {
         public Guid Id { get; set; }
 
-        public string Title { get; set; }
-
         public int Number { get; set; }
 
         public EnumRoomStatus Status { get; set; }

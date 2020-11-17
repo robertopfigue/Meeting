@@ -2,5 +2,6 @@
 {
     public interface IServiceRoom
     {
+        AddRoomResponse AddRoom(AddRoomRequest request);
     }
 }

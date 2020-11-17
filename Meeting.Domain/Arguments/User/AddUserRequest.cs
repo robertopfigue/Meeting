@@ -1,8 +1,9 @@
-﻿using Meeting.Domain.ValueObjects;
+﻿using Meeting.Domain.Interfaces.Services;
+using Meeting.Domain.ValueObjects;
 
 namespace Meeting.Domain.Arguments.User
 {
-    public class AddUserRequest
+    public class AddUserRequest : IRequest
     {
         public Name FirstName { get; set; }
 
