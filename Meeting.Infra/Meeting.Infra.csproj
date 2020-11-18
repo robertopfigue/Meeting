@@ -54,15 +54,14 @@
     <Compile Include="Persistence\Map\MapRoom.cs" />
     <Compile Include="Persistence\Map\MapUser.cs" />
     <Compile Include="Persistence\MeetingContext.cs" />
+    <Compile Include="Persistence\Repositories\RepositoryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Persistence\Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Meeting.Domain\Meeting.Domain.csproj">
       <Project>{795A21B8-66F5-46C0-81CD-C7C00F1BC009}</Project>

@@ -16,6 +16,11 @@ namespace Meeting.Domain.Entities
 
             new AddNotifications<User>(this)
                 .IfNullOrEmptyOrInvalidLength(x => x.Senha, 6, 32, "A Senha deve ter entre 6 a 32 caracteres");
+
+            if (IsValid())
+            {
+                Senha = Senha.ConvertToMD5();
+            }
         }
 
         public User(Name name, Email email, string senha)
@@ -28,7 +33,10 @@ namespace Meeting.Domain.Entities
             new AddNotifications<User>(this)
                 .IfNullOrEmptyOrInvalidLength(x => x.Senha, 6, 32, Message.X0_INVALIDA.ToFormat("Senha"));
 
-            Senha = Senha.ConvertToMD5();
+            if (IsValid())
+            {
+                Senha = Senha.ConvertToMD5();
+            }
 
             AddNotifications(name, email);
         }
