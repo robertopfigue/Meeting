@@ -1,6 +1,6 @@
 ﻿using Meeting.Domain.Interfaces.Services;
 
-namespace Meeting_Domain.Arguments.Room
+namespace Meeting.Domain.Arguments.Room
 {
     public class AddRoomRequest : IRequest
     {

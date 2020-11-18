@@ -8,5 +8,14 @@ namespace Meeting.Domain.Arguments.User
         public Guid Id { get; set; }
 
         public string Message { get; set; }
+
+        public static explicit operator AddUserResponse(Entities.User entidade)
+        {
+            return new AddUserResponse()
+            {
+                Id = entidade.Id,
+                Message = "Operação realizada com sucesso"
+            };
+        }
     }
 }

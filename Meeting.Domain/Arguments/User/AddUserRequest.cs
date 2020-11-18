@@ -5,9 +5,7 @@ namespace Meeting.Domain.Arguments.User
 {
     public class AddUserRequest : IRequest
     {
-        public Name FirstName { get; set; }
-
-        public Name LastName { get; set; }
+        public Name Name { get; set; }
 
         public Email Email { get; set; }
 

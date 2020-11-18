@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Meeting.Domain.Arguments.User;
+using Meeting.Domain.Entities;
+using System;
 
-namespace Meeting_Domain.Interfaces.Repositories
+namespace Meeting.Domain.Interfaces.Repositories
 {
     public interface IRepositoryUser
     {
+        User AuthenticateUser(string email, string senha);
 
+        User AddUser(User user);
     }
 }

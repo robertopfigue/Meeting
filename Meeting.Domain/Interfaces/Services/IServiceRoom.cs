@@ -1,4 +1,6 @@
-﻿namespace Meeting.Domain.Interfaces.Services
+﻿using Meeting.Domain.Arguments.Room;
+
+namespace Meeting.Domain.Interfaces.Services
 {
     public interface IServiceRoom
     {
