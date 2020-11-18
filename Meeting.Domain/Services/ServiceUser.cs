@@ -10,7 +10,7 @@ using System;
 
 namespace Meeting.Domain.Services
 {
-    class ServiceUser : Notifiable ,IServiceUser
+    public class ServiceUser : Notifiable ,IServiceUser
     {
         private readonly IRepositoryUser _repositoryUser;
 
