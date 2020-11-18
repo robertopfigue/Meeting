@@ -182,7 +182,7 @@
     <Compile Include="Arguments\User\AuthenticateUserResponse.cs" />
     <Compile Include="Entities\Room.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Meeting.cs" />
+    <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Enum\EnumRoomStatus.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Interfaces\Arguments\IRequest.cs" />

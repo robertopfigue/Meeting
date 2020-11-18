@@ -1,9 +1,10 @@
 ﻿using Meeting.Domain.Entities;
+using Meeting.Domain.ValueObjects;
 using System;
 
 namespace Meeting.Domain.Entities
 {
-    public class Meeting
+    public class Schedule
     {
         public Guid Id { get; set; }
 
@@ -13,8 +14,6 @@ namespace Meeting.Domain.Entities
 
         public User User { get; set; }
 
-        public DateTime InitialDate { get; set; }
-
-        public DateTime FinalDate { get; set; }
+        public Date Date { get; set; }
     }
 }
