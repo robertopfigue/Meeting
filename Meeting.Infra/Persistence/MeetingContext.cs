@@ -6,7 +6,7 @@ namespace Meeting.Infra.Persistence
 {
     public class MeetingContext : DbContext
     {
-        public MeetingContext() : base("")
+        public MeetingContext() : base("root")
         {
            
         }
@@ -22,6 +22,7 @@ namespace Meeting.Infra.Persistence
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
+            //modelBuilder.Entity<Schedule>().HasRequired<Room>
 
             modelBuilder.Configurations.AddFromAssembly(typeof(MeetingContext).Assembly);
 

@@ -184,9 +184,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202011190434525_ajuste-fk.cs" />
+    <Compile Include="Migrations\202011190434525_ajuste-fk.designer.cs">
+      <DependentUpon>202011190434525_ajuste-fk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\Map\MapRoom.cs" />
+    <Compile Include="Persistence\Map\MapSchedules.cs" />
     <Compile Include="Persistence\Map\MapUser.cs" />
     <Compile Include="Persistence\MeetingContext.cs" />
+    <Compile Include="Persistence\Repositories\RepositorSchedule.cs" />
+    <Compile Include="Persistence\Repositories\RepositoryRoom.cs" />
     <Compile Include="Persistence\Repositories\RepositoryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction\IUnitOfWork.cs" />
@@ -196,12 +204,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Meeting.Domain\Meeting.Domain.csproj">
       <Project>{795A21B8-66F5-46C0-81CD-C7C00F1BC009}</Project>
       <Name>Meeting.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011190434525_ajuste-fk.resx">
+      <DependentUpon>202011190434525_ajuste-fk.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

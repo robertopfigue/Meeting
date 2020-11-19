@@ -9,5 +9,7 @@ namespace Meeting.Domain.Interfaces.Repositories
         User AuthenticateUser(string email, string senha);
 
         User AddUser(User user);
+
+        User SelectUser(Guid Id);
     }
 }

@@ -21,12 +21,14 @@ namespace Meeting.Domain.Services
 
         public AddUserResponse AddUser(AddUserRequest request)
         {
-            var name = new Name(request.Name.FirstName, request.Name.LastName);
-            var email = new Email(request.Email.Address);
+            var name = new Name(request.FirstName, request.LastName);
+            var email = new Email(request.Email);
 
             User user = new User(name, email, request.Senha);
 
-            if (this.IsInvalid())
+            AddNotifications(user);
+
+            if (user.IsInvalid())
             {
                 return null;
             }
@@ -54,6 +56,13 @@ namespace Meeting.Domain.Services
             user = _repositoryUser.AuthenticateUser(user.Email.Address, user.Senha);
 
             return (AuthenticateUserResponse)user;
+        }
+
+        public User SelectUser(Guid id)
+        {
+            var user = _repositoryUser.SelectUser(id);
+
+            return user;
         }
     }
 }

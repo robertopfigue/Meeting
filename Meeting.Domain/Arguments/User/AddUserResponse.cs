@@ -5,7 +5,7 @@ namespace Meeting.Domain.Arguments.User
 {
     public class AddUserResponse : IResponse
     {
-        public Guid Id { get; set; }
+        public string Email { get; set; }
 
         public string Message { get; set; }
 
@@ -13,8 +13,8 @@ namespace Meeting.Domain.Arguments.User
         {
             return new AddUserResponse()
             {
-                Id = entidade.Id,
-                Message = "Operação realizada com sucesso"
+                Email = entidade.Email.Address,
+                Message = "Usuário cadastrado com sucesso"
             };
         }
     }

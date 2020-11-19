@@ -1,5 +1,6 @@
 ﻿using Meeting.Domain.Entities;
 using Meeting.Domain.Interfaces.Repositories;
+using System;
 using System.Linq;
 
 namespace Meeting.Infra.Persistence.Repositories
@@ -26,6 +27,20 @@ namespace Meeting.Infra.Persistence.Repositories
             var user = _context.Users.Where(x => x.Email.Address == email).FirstOrDefault();
 
             if (user.Senha == senha)
+            {
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public User SelectUser(Guid id)
+        {
+            var user = _context.Users.Where(x => x.Id == id).FirstOrDefault();
+
+            if(user != null)
             {
                 return user;
             }

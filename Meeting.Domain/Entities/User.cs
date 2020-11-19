@@ -4,11 +4,13 @@ using Meeting_Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
 using System;
+using System.Collections.Generic;
 
 namespace Meeting.Domain.Entities
 {
     public class User : Notifiable
     {
+
         public User(Email email, string senha)
         {
             Email = email;
@@ -48,5 +50,7 @@ namespace Meeting.Domain.Entities
         public Email Email { get; private set; }
 
         public string Senha { get; private set; }
+
+        public ICollection<Schedule> Schedule { get; private set; }
     }
 }
