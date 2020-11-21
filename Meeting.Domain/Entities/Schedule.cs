@@ -7,12 +7,16 @@ namespace Meeting.Domain.Entities
 {
     public class Schedule : Notifiable
     {
-        public Schedule(string title, Room room, User user, Date date)
+        public Schedule()
+        {
+        }
+
+        public Schedule(string title, Guid room, Guid user, Date date)
         {
             Id = Guid.NewGuid();
             Title = title;
-            Room = room;
-            User = user;
+            RoomId = room;
+            UserId = user;
             Date = date;
 
             new AddNotifications<Schedule>(this)
@@ -31,7 +35,9 @@ namespace Meeting.Domain.Entities
         public User User { get; private set; }
 
         public Date Date { get; private set; }
+
         public Guid UserId { get; private set; }
+
         public Guid RoomId { get; private set; }
     }
 }

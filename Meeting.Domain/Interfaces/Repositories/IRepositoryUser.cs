@@ -1,6 +1,7 @@
 ﻿using Meeting.Domain.Arguments.User;
 using Meeting.Domain.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace Meeting.Domain.Interfaces.Repositories
 {
@@ -10,6 +11,6 @@ namespace Meeting.Domain.Interfaces.Repositories
 
         User AddUser(User user);
 
-        User SelectUser(Guid Id);
+        List<User> ListUser();
     }
 }

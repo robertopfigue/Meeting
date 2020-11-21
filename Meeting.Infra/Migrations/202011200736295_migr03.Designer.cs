@@ -7,13 +7,13 @@ namespace Meeting.Infra.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class ajustefk : IMigrationMetadata
+    public sealed partial class migr03 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ajustefk));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migr03));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011190434525_ajuste-fk"; }
+            get { return "202011200736295_migr03"; }
         }
         
         string IMigrationMetadata.Source

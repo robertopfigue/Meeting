@@ -7,6 +7,10 @@ namespace Meeting.Domain.ValueObjects
 {
     public class Date : Notifiable
     {
+        public Date()
+        {
+
+        }
         public Date(DateTime initialDate, DateTime finalDate)
         {
             InitialDate = initialDate;

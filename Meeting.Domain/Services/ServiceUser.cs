@@ -7,6 +7,7 @@ using Meeting_Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
 using System;
+using System.Collections.Generic;
 
 namespace Meeting.Domain.Services
 {
@@ -58,11 +59,9 @@ namespace Meeting.Domain.Services
             return (AuthenticateUserResponse)user;
         }
 
-        public User SelectUser(Guid id)
+        public List<User> SelectUser()
         {
-            var user = _repositoryUser.SelectUser(id);
-
-            return user;
+            return _repositoryUser.ListUser();
         }
     }
 }

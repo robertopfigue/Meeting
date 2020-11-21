@@ -10,6 +10,9 @@ namespace Meeting.Domain.Entities
 {
     public class User : Notifiable
     {
+        public User()
+        {
+        }
 
         public User(Email email, string senha)
         {
@@ -43,14 +46,14 @@ namespace Meeting.Domain.Entities
             AddNotifications(name, email);
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
-        public Name Name { get; private set; }
+        public Name Name { get; set; }
 
-        public Email Email { get; private set; }
+        public Email Email { get; set; }
 
-        public string Senha { get; private set; }
+        public string Senha { get; set; }
 
-        public ICollection<Schedule> Schedule { get; private set; }
+        public ICollection<Schedule> Schedule { get; set; }
     }
 }

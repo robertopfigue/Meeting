@@ -28,7 +28,8 @@ namespace Meeting.IoC.Unity
             //container.RegisterType(typeof(IServiceBase<,>), typeof(ServiceBase<,>));
 
             container.RegisterType<IServiceUser, ServiceUser>(new HierarchicalLifetimeManager());
-            //container.RegisterType<IServiceRoom, ServiceRoom>(new HierarchicalLifetimeManager());
+            container.RegisterType<IServiceRoom, ServiceRoom>(new HierarchicalLifetimeManager());
+            container.RegisterType<IServiceSchedule, ServiceSchedule>(new HierarchicalLifetimeManager());
 
 
 
@@ -36,7 +37,8 @@ namespace Meeting.IoC.Unity
             //container.RegisterType(typeof(IRepositoryBase<,>), typeof(RepositoryBase<,>));
 
             container.RegisterType<IRepositoryUser, RepositoryUser>(new HierarchicalLifetimeManager());
-            //container.RegisterType<IRepositoryJogo, RepositoryJogo>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRepositoryRoom, RepositoryRoom>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRepositorySchedule, RepositorSchedule>(new HierarchicalLifetimeManager());
         }
     }
 }

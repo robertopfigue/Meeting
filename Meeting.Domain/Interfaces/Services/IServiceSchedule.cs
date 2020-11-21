@@ -9,5 +9,6 @@ namespace Meeting.Domain.Interfaces.Services
     public interface IServiceSchedule : IServiceBase
     {
         AddScheduleResponse AddSchedule(AddScheduleRequest request);
+
     }
 }

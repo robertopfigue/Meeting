@@ -9,8 +9,6 @@ using System.Web.Http;
 
 namespace Meeting.Api.Controllers
 {
-    //meeting.com.br/api/user
-
     [RoutePrefix("api/user")]
     public class UserController : ControllerBase
     {

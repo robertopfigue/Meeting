@@ -184,9 +184,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202011190434525_ajuste-fk.cs" />
-    <Compile Include="Migrations\202011190434525_ajuste-fk.designer.cs">
-      <DependentUpon>202011190434525_ajuste-fk.cs</DependentUpon>
+    <Compile Include="Migrations\202011200736295_migr03.cs" />
+    <Compile Include="Migrations\202011200736295_migr03.designer.cs">
+      <DependentUpon>202011200736295_migr03.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\Map\MapRoom.cs" />
@@ -211,8 +211,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011190434525_ajuste-fk.resx">
-      <DependentUpon>202011190434525_ajuste-fk.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011200736295_migr03.resx">
+      <DependentUpon>202011200736295_migr03.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,10 @@ namespace Meeting.Domain.Entities
 {
     public class Room : Notifiable
     {
+        public Room()
+        {
+        }
+
         public Room(int number)
         {
             Id = Guid.NewGuid();

@@ -1,6 +1,7 @@
 ﻿using Meeting.Domain.Entities;
 using Meeting.Domain.Interfaces.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Meeting.Infra.Persistence.Repositories
@@ -36,13 +37,13 @@ namespace Meeting.Infra.Persistence.Repositories
             }
         }
 
-        public User SelectUser(Guid id)
+        public List<User> ListUser()
         {
-            var user = _context.Users.Where(x => x.Id == id).FirstOrDefault();
+            var list = _context.Users.ToList();
 
-            if(user != null)
+            if(list != null)
             {
-                return user;
+                return list;
             }
             else
             {

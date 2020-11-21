@@ -3,7 +3,6 @@
     public enum EnumRoomStatus
     {
         Livre = 0,
-        Ocupada = 1,
-        Reservada = 2
+        Reservada = 1
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Meeting.Domain.Arguments.Room;
 using Meeting.Domain.Entities;
+using Meeting.Domain.Enum;
 using Meeting.Domain.Interfaces.Repositories;
 using Meeting.Domain.Interfaces.Services;
 using prmToolkit.NotificationPattern;
 using System;
+using System.Collections.Generic;
 
 namespace Meeting.Domain.Services
 {
@@ -32,11 +34,21 @@ namespace Meeting.Domain.Services
             return (AddRoomResponse)room;
         }
 
-        public Room SelectRoom(Guid id)
+        public List<Room> ListRoom()
         {
-            var room = _repositoryRoom.SelectRoom(id);
+            var room = _repositoryRoom.ListRoom();
 
             return room;
+        }
+
+        public void SetFree(Guid id)
+        {
+            _repositoryRoom.SetFree(id);
+        }
+
+        public void SetReserved(Guid id)
+        {
+            _repositoryRoom.SetReserved(id);
         }
     }
 }

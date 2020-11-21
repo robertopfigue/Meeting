@@ -6,6 +6,10 @@ namespace Meeting.Domain.ValueObjects
 {
     public class Name : Notifiable
     {
+        public Name()
+        {
+        }
+
         public Name(string firstName, string lastName)
         {
             FirstName = firstName;
