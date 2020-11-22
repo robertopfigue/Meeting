@@ -37,5 +37,21 @@ namespace Meeting.Api.Controllers
                     return await ResponseExceptionAsync(ex);
                 }
             }
+
+        [Route("Listar")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> Listar(ListScheduleRequest request)
+        {
+            try
+            {
+                var response = _serviceSchedule.ListSchedule();
+
+                return await ResponseAsync(response, _serviceSchedule);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
         }
+    }
 }

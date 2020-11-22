@@ -46,6 +46,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
@@ -176,8 +177,14 @@
   <ItemGroup>
     <Compile Include="Arguments\Room\AddRoomRequest.cs" />
     <Compile Include="Arguments\Room\AddRoomResponse.cs" />
+    <Compile Include="Arguments\Room\ListRoomRequest.cs" />
+    <Compile Include="Arguments\Room\ListRoomReservedRequest.cs" />
+    <Compile Include="Arguments\Room\ListRoomReservedResponse.cs" />
+    <Compile Include="Arguments\Room\ListRoomResponse.cs" />
     <Compile Include="Arguments\Schedule\AddScheduleRequest.cs" />
     <Compile Include="Arguments\Schedule\AddScheduleResponse.cs" />
+    <Compile Include="Arguments\Schedule\ListScheduleRequest.cs" />
+    <Compile Include="Arguments\Schedule\ListScheduleResponse.cs" />
     <Compile Include="Arguments\User\AddUserRequest.cs" />
     <Compile Include="Arguments\User\AddUserResponse.cs" />
     <Compile Include="Arguments\User\AuthenticateUserRequest.cs" />
@@ -210,6 +217,7 @@
     <Compile Include="ValueObjects\Name.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

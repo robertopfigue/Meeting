@@ -25,16 +25,10 @@ namespace Meeting.Infra.Persistence.Repositories
 
         public User AuthenticateUser(string email, string senha)
         {
-            var user = _context.Users.Where(x => x.Email.Address == email).FirstOrDefault();
+            var user = _context.Users.Where(x => x.Email.Address == email && x.Senha == senha).FirstOrDefault();
 
-            if (user.Senha == senha)
-            {
-                return user;
-            }
-            else
-            {
-                return null;
-            }
+            return user;
+
         }
 
         public List<User> ListUser()

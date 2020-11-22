@@ -33,13 +33,13 @@ namespace Meeting.Domain.Services
                 return null;
             }
 
-            if (ScheduleIsValid(schedule.RoomId))
+            if (ScheduleIsValid(schedule.RoomId, schedule.Date.InitialDate, schedule.Date.FinalDate))
             {
                 schedule = _repositorySchedule.AddSchedule(schedule);
             }
             else
             {
-                AddNotification("Agendamento", "Está sala já está agendada neste horário.");
+                AddNotification("Agendamento", "Está sala já foi agendada neste horário.");
 
                 AddNotifications(schedule);
 
@@ -49,7 +49,15 @@ namespace Meeting.Domain.Services
             return (AddScheduleResponse)schedule;
         }
 
-        public bool ScheduleIsValid(Guid room)
+        public IEnumerable<ListScheduleResponse> ListSchedule()
+        {
+            var list = new List<Schedule>();
+            list = _repositorySchedule.ListSchedules();
+
+            return list.ToList().Select(schedule => (ListScheduleResponse)schedule).ToList();
+        }
+
+        public bool ScheduleIsValid(Guid room, DateTime initialDate, DateTime finalDate)
         {
             var list = new List<Schedule>();
             list = _repositorySchedule.ListSchedules();
@@ -61,7 +69,7 @@ namespace Meeting.Domain.Services
 
             foreach (var schedule in list)
             {
-                if (schedule.Room.Status != Enum.EnumRoomStatus.Livre)
+                if (schedule.RoomId == room && initialDate >= schedule.Date.InitialDate && finalDate <= schedule.Date.FinalDate)
                 {
                     return false;
                 }

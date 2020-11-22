@@ -3,6 +3,7 @@ using Meeting.Domain.Enum;
 using Meeting.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Meeting.Infra.Persistence.Repositories
@@ -26,11 +27,10 @@ namespace Meeting.Infra.Persistence.Repositories
 
         public List<Room> ListRoom()
         {
-            var list = _context.Rooms.ToList();
-
-            if (list.Any())
+            if (_context.Rooms.Any())
             {
-                return list;
+                var list = new List<Room>();
+                return list = _context.Rooms.ToList();
             }
             else
             {

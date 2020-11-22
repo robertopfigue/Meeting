@@ -70,6 +70,15 @@ namespace Meeting_Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} este e-mail já foi cadastrado..
+        /// </summary>
+        public static string X0_EMAIL_JA_CADASTRADO {
+            get {
+                return ResourceManager.GetString("X0_EMAIL_JA_CADASTRADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} inválido..
         /// </summary>
         public static string X0_INVALIDA {

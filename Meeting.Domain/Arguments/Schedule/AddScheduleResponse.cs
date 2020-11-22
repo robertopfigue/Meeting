@@ -17,7 +17,7 @@ namespace Meeting.Domain.Arguments.Schedule
             {
                 Title = entidade.Title,
                 Message = "Reunão agenda com sucesso",
-                RoomNumber = entidade.Room.Number
+                //RoomNumber = entidade.Room.Number
             };
         }
     }

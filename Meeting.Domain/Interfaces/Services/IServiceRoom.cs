@@ -11,6 +11,8 @@ namespace Meeting.Domain.Interfaces.Services
     {
         AddRoomResponse AddRoom(AddRoomRequest request);
 
+        IEnumerable<ListRoomResponse> ListEmpstyRooms();
+        IEnumerable<ListRoomReservedResponse> ListReservedRooms();
         List<Room> ListRoom();
 
         void SetReserved(Guid id);

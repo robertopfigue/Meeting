@@ -34,5 +34,37 @@ namespace Meeting.Api.Controllers
                 return await ResponseExceptionAsync(ex);
             }
         }
+
+        [Route("ListaSalasLivres")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> Listar()
+        {
+            try
+            {
+                var response = _serviceRoom.ListEmpstyRooms();
+
+                return await ResponseAsync(response, _serviceRoom);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
+        }
+
+        [Route("ListaSalasReservadas")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> ListReserved()
+        {
+            try
+            {
+                var response = _serviceRoom.ListReservedRooms();
+
+                return await ResponseAsync(response, _serviceRoom);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
+        }
     }
 }
