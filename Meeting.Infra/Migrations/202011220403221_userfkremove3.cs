@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class migr03 : DbMigration
+    public partial class userfkremove3 : DbMigration
     {
         public override void Up()
         {
@@ -25,13 +25,10 @@
                         Title = c.String(nullable: false, maxLength: 50, unicode: false),
                         InicialDate = c.DateTime(nullable: false),
                         FinalDate = c.DateTime(nullable: false),
-                        UserId = c.Guid(nullable: false),
                         RoomId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Room", t => t.RoomId, cascadeDelete: true)
-                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
                 .Index(t => t.RoomId);
             
             CreateTable(
@@ -50,10 +47,8 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Schedule", "UserId", "dbo.User");
             DropForeignKey("dbo.Schedule", "RoomId", "dbo.Room");
             DropIndex("dbo.Schedule", new[] { "RoomId" });
-            DropIndex("dbo.Schedule", new[] { "UserId" });
             DropTable("dbo.User");
             DropTable("dbo.Schedule");
             DropTable("dbo.Room");

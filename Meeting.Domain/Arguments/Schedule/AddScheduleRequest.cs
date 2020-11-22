@@ -10,8 +10,6 @@ namespace Meeting.Domain.Arguments.Schedule
 
         public Guid Room { get; set; }
 
-        public Guid User { get; set; }
-
         public DateTime InitialDate { get; set; }
 
         public DateTime FinalDate { get; set; }

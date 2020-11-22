@@ -42,13 +42,20 @@ namespace Meeting.Domain.Services
             List<Room> roomsEmpty = new List<Room>();
             var schedules = _repositorySchedule.ListSchedules();
             var rooms = ListRoom();
-
-            foreach (var r in rooms)
+            
+            if (rooms != null)
             {
-                if (!schedules.Any(x => x.RoomId == r.Id))
+                foreach (var r in rooms)
                 {
-                    roomsEmpty.Add(r);
+                    if (!schedules.Any(x => x.RoomId == r.Id))
+                    {
+                        roomsEmpty.Add(r);
+                    }
                 }
+            }
+            else
+            {
+                return null;
             }
 
             return roomsEmpty.ToList().Select(y => (ListRoomResponse)y).ToList();
@@ -60,15 +67,22 @@ namespace Meeting.Domain.Services
             var schedules = _repositorySchedule.ListSchedules();
             var rooms = ListRoom();
 
-            foreach (var r in rooms)
+            if (rooms != null)
             {
-                if (schedules.Any(x => x.RoomId == r.Id))
+                foreach (var r in rooms)
                 {
-                    if (!roomsEmpty.Any() || roomsEmpty.Any(x => x.Id != r.Id))
+                    if (schedules.Any(x => x.RoomId == r.Id))
                     {
-                        roomsEmpty.Add(r);
+                        if (!roomsEmpty.Any() || roomsEmpty.Any(x => x.Id != r.Id))
+                        {
+                            roomsEmpty.Add(r);
+                        }
                     }
                 }
+            }
+            else
+            {
+                return null;
             }
 
             return roomsEmpty.ToList().Select(y => (ListRoomReservedResponse)y).ToList();

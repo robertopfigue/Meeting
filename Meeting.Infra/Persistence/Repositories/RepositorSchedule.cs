@@ -32,8 +32,7 @@ namespace Meeting.Infra.Persistence.Repositories
 
             if (_context.Schedules.Any()) 
             {
-                return list = _context.Schedules.Include(x => x.Room).Where(x => x.Room.Id == x.RoomId).
-                Include(y => y.User).Where(y => y.User.Id == y.UserId).ToList();
+                return list = _context.Schedules.Include(x => x.Room).Where(x => x.Room.Id == x.RoomId).ToList();
             }
             else
             {

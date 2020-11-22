@@ -24,7 +24,7 @@ namespace Meeting.Domain.Services
         {
             var date = new Date(request.InitialDate, request.FinalDate);
 
-            var schedule = new Schedule(request.Title, request.Room, request.User, date);
+            var schedule = new Schedule(request.Title, request.Room, date);
 
             AddNotifications(schedule);
 

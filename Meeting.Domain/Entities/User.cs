@@ -53,7 +53,5 @@ namespace Meeting.Domain.Entities
         public Email Email { get; set; }
 
         public string Senha { get; set; }
-
-        public ICollection<Schedule> Schedule { get; set; }
     }
 }

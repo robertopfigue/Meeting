@@ -11,8 +11,6 @@ namespace Meeting.Infra.Persistence.Map
 
             Property(p => p.Title).HasMaxLength(50).IsRequired();
             Property(p => p.RoomId).IsRequired();
-            Property(p => p.UserId).IsRequired();
-            HasRequired(p => p.User).WithMany(p => p.Schedule).HasForeignKey(p => p.UserId);
             HasRequired(p => p.Room).WithMany(p => p.Schedule).HasForeignKey(p => p.RoomId);
             Property(p => p.Date.InitialDate).IsRequired().HasColumnName("InicialDate");
             Property(p => p.Date.FinalDate).IsRequired().HasColumnName("FinalDate");

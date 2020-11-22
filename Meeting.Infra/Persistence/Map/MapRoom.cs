@@ -10,7 +10,6 @@ namespace Meeting.Infra.Persistence.Map
             ToTable("Room");
 
             Property(p => p.Number).IsRequired();
-            Property(p => p.Status).IsRequired();
         }
     }
 }
