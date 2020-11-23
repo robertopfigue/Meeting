@@ -45,6 +45,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NodaTime, Version=3.0.3.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NodaTime.3.0.3\lib\netstandard2.0\NodaTime.dll</HintPath>
+    </Reference>
     <Reference Include="prmToolkit.NotificationPattern, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\prmToolkit.NotificationPattern.1.1.3\lib\netstandard1.0\prmToolkit.NotificationPattern.dll</HintPath>
     </Reference>
@@ -132,6 +135,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
       <Private>True</Private>
@@ -184,11 +190,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202011220403221_userfkremove3.cs" />
-    <Compile Include="Migrations\202011220403221_userfkremove3.designer.cs">
-      <DependentUpon>202011220403221_userfkremove3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\Map\MapRoom.cs" />
     <Compile Include="Persistence\Map\MapSchedules.cs" />
     <Compile Include="Persistence\Map\MapUser.cs" />
@@ -209,11 +210,6 @@
       <Project>{795A21B8-66F5-46C0-81CD-C7C00F1BC009}</Project>
       <Name>Meeting.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011220403221_userfkremove3.resx">
-      <DependentUpon>202011220403221_userfkremove3.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

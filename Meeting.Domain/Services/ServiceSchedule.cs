@@ -14,39 +14,44 @@ namespace Meeting.Domain.Services
     public class ServiceSchedule : Notifiable, IServiceSchedule
     {
         private readonly IRepositorySchedule _repositorySchedule;
+        private readonly IRepositoryRoom _repositoryRoom;
 
-        public ServiceSchedule(IRepositorySchedule repositorySchedule)
+        public ServiceSchedule(IRepositorySchedule repositorySchedule, IRepositoryRoom repositoryRoom)
         {
             _repositorySchedule = repositorySchedule;
+            _repositoryRoom = repositoryRoom;
         }
 
         public AddScheduleResponse AddSchedule(AddScheduleRequest request)
         {
-            var date = new Date(request.InitialDate, request.FinalDate);
-
-            var schedule = new Schedule(request.Title, request.Room, date);
-
-            AddNotifications(schedule);
-
-            if (schedule.IsInvalid())
+            if (RoomExist(request.Room))
             {
-                return null;
-            }
+                var date = new Date(request.InitialDate, request.FinalDate);
 
-            if (ScheduleIsValid(schedule.RoomId, schedule.Date.InitialDate, schedule.Date.FinalDate))
-            {
-                schedule = _repositorySchedule.AddSchedule(schedule);
-            }
-            else
-            {
-                AddNotification("Agendamento", "Está sala já foi agendada neste horário.");
+                var schedule = new Schedule(request.Title, SelectGuidRoom(request.Room), date);
 
                 AddNotifications(schedule);
 
+                if (schedule.IsInvalid())
+                {
+                    return null;
+                }
+
+                if (ScheduleIsValid(schedule.RoomId, schedule.Date.InitialDate, schedule.Date.FinalDate))
+                {
+                    schedule = _repositorySchedule.AddSchedule(schedule);
+                }
+                else
+                {
+                    return null;
+                }
+
+                return (AddScheduleResponse)schedule;
+            }
+            else
+            {
                 return null;
             }
-
-            return (AddScheduleResponse)schedule;
         }
 
         public IEnumerable<ListScheduleResponse> ListSchedule()
@@ -69,8 +74,13 @@ namespace Meeting.Domain.Services
 
             foreach (var schedule in list)
             {
-                if (schedule.RoomId == room && initialDate >= schedule.Date.InitialDate && finalDate <= schedule.Date.FinalDate)
+                if (schedule.RoomId == room && initialDate >= schedule.Date.InitialDate && initialDate <= schedule.Date.FinalDate
+                    ||finalDate >= schedule.Date.InitialDate && finalDate <= schedule.Date.FinalDate)
                 {
+                    AddNotification("Agendamento", $"Está sala já foi agendada neste horário {schedule.Date.InitialDate} á {schedule.Date.FinalDate}");
+
+                    AddNotifications(schedule);
+
                     return false;
                 }
             }
@@ -78,25 +88,19 @@ namespace Meeting.Domain.Services
             return true;
         }
 
-        //public void VerificaReserved()
-        //{
-        //    var list = _repositorySchedule.ListSchedules();
+        public bool RoomExist(int number)
+        {
+           return _repositoryRoom.ListRoom().Any(x => x.Number == number);
+        }
 
-        //    if (list.Any())
-        //    {
-        //        foreach (var schedule in list)
-        //        {
-        //            if (DateTime.Now >= schedule.Date.InitialDate && DateTime.Now <= schedule.Date.FinalDate)
-        //            {
-        //                schedule.Room.Status = Enum.EnumRoomStatus.Reservada;
-        //            }
-        //            else
-        //            {
-        //                schedule.Room.Status = Enum.EnumRoomStatus.Livre;
-        //            }
-        //        }
-        //    }
-        //}
+        public Guid SelectGuidRoom(int number)
+        {
+            var rooms = _repositoryRoom.ListRoom();
+            var room = rooms.Where(x => x.Number == number).FirstOrDefault();
+
+            return room.Id;
+        }
+
 
     }
 }

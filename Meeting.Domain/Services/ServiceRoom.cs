@@ -1,6 +1,5 @@
 ﻿using Meeting.Domain.Arguments.Room;
 using Meeting.Domain.Entities;
-using Meeting.Domain.Enum;
 using Meeting.Domain.Interfaces.Repositories;
 using Meeting.Domain.Interfaces.Services;
 using prmToolkit.NotificationPattern;
@@ -29,6 +28,15 @@ namespace Meeting.Domain.Services
 
             if (room.IsInvalid())
             {
+                return null;
+            }
+
+            if (RoomExists(room.Number))
+            {
+                AddNotification("Sala", "Está sala já existe no cadastro.");
+
+                AddNotifications(room);
+
                 return null;
             }
 
@@ -96,14 +104,17 @@ namespace Meeting.Domain.Services
             return rooms;
         }
 
-        public void SetFree(Guid id)
+        public bool RoomExists(int number)
         {
-            _repositoryRoom.SetFree(id);
-        }
-
-        public void SetReserved(Guid id)
-        {
-            _repositoryRoom.SetReserved(id);
+            var rooms = _repositoryRoom.ListRoom();
+            if (rooms == null)
+            {
+                return false;
+            }
+            else
+            {
+                return rooms.Any(x => x.Number == number);
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Meeting.Domain.Arguments.Schedule
     {
         public string Title { get; set; }
 
-        public Guid Room { get; set; }
+        public int Room { get; set; }
 
         public DateTime InitialDate { get; set; }
 

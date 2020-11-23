@@ -1,5 +1,4 @@
-﻿using Meeting.Domain.Enum;
-using Meeting_Domain.Resources;
+﻿using Meeting_Domain.Resources;
 using prmToolkit.NotificationPattern;
 using prmToolkit.NotificationPattern.Extensions;
 using System;
@@ -17,7 +16,6 @@ namespace Meeting.Domain.Entities
         {
             Id = Guid.NewGuid();
             Number = number;
-            Status = EnumRoomStatus.Livre;
 
             new AddNotifications<Room>(this)
                 .IfGreaterThan(x => x.Number, 100, Message.X0_INVALIDO.ToFormat("Número"));
@@ -26,8 +24,6 @@ namespace Meeting.Domain.Entities
         public Guid Id { get; set; }
 
         public int Number { get; set; }
-
-        public EnumRoomStatus Status { get; set; }
 
         public ICollection<Schedule> Schedule { get; private set; }
     }

@@ -1,5 +1,4 @@
 ﻿using Meeting.Domain.Entities;
-using Meeting.Domain.Enum;
 using Meeting.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
@@ -36,18 +35,6 @@ namespace Meeting.Infra.Persistence.Repositories
             {
                 return null;
             }
-        }
-
-        public void SetReserved(Guid id)
-        {
-            var room = _context.Rooms.Where(x => x.Id == id).FirstOrDefault();
-            room.Status = EnumRoomStatus.Reservada;
-        }
-
-        public void SetFree(Guid id)
-        {
-            var room = _context.Rooms.Where(x => x.Id == id).FirstOrDefault();
-            room.Status = EnumRoomStatus.Livre;
         }
     }
 }
