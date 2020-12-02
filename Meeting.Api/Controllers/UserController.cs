@@ -34,5 +34,21 @@ namespace Meeting.Api.Controllers
                 return await ResponseExceptionAsync(ex);
             }
         }
+
+        [Route("Auth")]
+        [HttpPost]
+        public async Task<HttpResponseMessage> Auth(AuthenticateUserRequest request)
+        {
+            try
+            {
+                var response = _serviceUser.AuthenticateUser(request);
+
+                return await ResponseAsync(response, _serviceUser);
+            }
+            catch (Exception ex)
+            {
+                return await ResponseExceptionAsync(ex);
+            }
+        }
     }
 }
